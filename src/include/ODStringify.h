@@ -34,14 +34,19 @@
 
 #define __ODStringifyCheck(x)           __unused __typeof (x) __od_str_obj
 #define __ODStringifyCheckClass(x)      __unused x *__od_str_obj
+#define __ODStringifyCheckProperty(x)   __unused __typeof (self.x) __od_x_prop = self.x
 
 #if DEBUG == 1
     #define ODStringify(obj)            ({ __ODStringifyCheck(obj); ODStringifyUnsafe(obj); })
     #define ODStringifyClass(cls)       ({ __ODStringifyCheckClass(cls); ODStringifyUnsafe(cls); })
+    #define ODStringifyProperty(prop)   ({ __ODStringifyCheckProperty(prop); ODStringifyUnsafe(prop); })
 #else
     #define ODStringify(obj)            (ODStringifyUnsafe(obj))
     #define ODStringifyClass(cls)       (ODStringifyUnsafe(cls))
+    #define ODStringifyProperty(prop)   (ODStringifyUnsafe(prop))
 #endif
+
+#define ODStringifySelector(sel)        ({ NSStringFromSelector(@selector(sel)); })
 
 /** 
  * Concatenate defines as strings
