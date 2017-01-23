@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ODXCore.h"
+#import <ODStringify.h>
 
 @interface ODStringify_Test : XCTestCase
 @end

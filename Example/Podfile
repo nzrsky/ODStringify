@@ -1,0 +1,9 @@
+use_frameworks!
+
+target 'ODStringify_Example' do
+  pod 'ODStringify', :path => '../'
+end
+
+target 'Tests' do
+    pod 'ODStringify', :path => '../'
+end

@@ -1,12 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = 'ODStringify'
-  s.version      = '1.1.0'
-  s.summary      = 'Stringify functions, classes, properties and defines'
+  s.version      = '1.1.1'
+  s.summary      = 'Make string from functions, classes, properties and defines safely'
   s.homepage     = 'https://github.com/Rogaven/ODStringify'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author       = { 'Alexey Nazaroff' => 'alexx.nazaroff@gmail.com' }
   s.source       = { :git => 'https://github.com/Rogaven/ODStringify.git', :tag => s.version.to_s }
-  
+  s.social_media_url = 'https://twitter.com/nazarff'
+
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
   s.watchos.deployment_target = '1.0'
@@ -24,14 +25,8 @@ Pod::Spec.new do |s|
 #endif
 EOS
   s.prefix_header_contents = pch_TARGETS
-
   s.requires_arc = true
-  
   s.framework    = 'Foundation'
-  
   s.source_files = 'src/**/*'
   s.public_header_files = 'src/include/**/*'
-  
-  #s.dependency ''
 end
-

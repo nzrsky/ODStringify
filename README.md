@@ -1,23 +1,122 @@
 # ODStringify
 
-[![Version](https://img.shields.io/cocoapods/v/ODStringify.svg?style=flat)](http://cocoapods.org/pods/ODStringify)
-[![License](https://img.shields.io/cocoapods/l/ODStringify.svg?style=flat)](http://cocoapods.org/pods/ODStringify)
-[![Platform](https://img.shields.io/cocoapods/p/ODStringify.svg?style=flat)](http://cocoapods.org/pods/ODStringify)
+[![Build Status](https://travis-ci.org/Rogaven/ODStringify.svg?branch=master)](https://travis-ci.org/Rogaven/ODStringify)
+[![codecov.io](https://codecov.io/github/Rogaven/ODStringify/coverage.svg?branch=master)](https://codecov.io/github/Rogaven/ODStringify?branch=master)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ODStringify.svg)](https://img.shields.io/cocoapods/v/ODStringify.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform](https://img.shields.io/cocoapods/p/ODStringify.svg?style=flat)](http://cocoadocs.org/docsets/ODStringify)
+[![Twitter](https://img.shields.io/badge/twitter-@nazarff-blue.svg?style=flat)](http://twitter.com/nazarff)
+
 
 ## Usage
 
+With ODStringify you can make strings from classes, properties, defines and functions
+using one function. Safely. And all things will be done compile time.
+No more runtime overhead and calls like NSStringFromClass (despite of for this function it was very small).
+
+First of all you can make strings from defined value. It's crazy. For example:
 ```objective-c
-#import <ODStringify.h>
+#define MAX_NUMBER_OF_SOMETHING 10
+#define DEFAULT_HI_STRING @"hello"
+
+NSLog(@"Hi string:%@", ODStringify(DEFAULT_HI_STRING)); // > @"hello" (@"@\"hello\"")
+NSLog(@"Max number:%@", ODStringify(MAX_NUMBER_OF_SOMETHING)); // > 10 (@"10")
 ```
+<p align="center" >
+  <img src="https://raw.github.com/Rogaven/ODStringify/assets/1.png" alt="ODStringify">
+</p>
+
+### ODStringifyClass
+Class's name string with compile time type check.
+```objective-c
+NSLog(@"Valid class:%@", ODStringifyClass(AppDelegate)); // AppDelegate
+NSLog(@"Invalid class:%@", ODStringifyClass(App_Delegate)); // Error
+```
+<p align="center" >
+  <img src="https://raw.github.com/Rogaven/ODStringify/assets/2.png" alt="ODStringify">
+</p>
+
+### ODStringifyProperty
+Pretty same thing for properties.
+NB. You need to be inside of class implementation (and have `self`)
+```objective-c
+// AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"Valid property:%@", ODStringifyProperty(window)); // window
+    NSLog(@"Invalid property:%@", ODStringifyProperty(window_)); // Error
+    return YES;
+}
+```
+
+### ODConcat
+Allows us to concat any things. For example how it works in `ODWeakify` pod –
+we concat name of variable with _weak_ suffix to get new another one.
+
+```objective-c
+#define od_weakify(obj)  __weak __typeof(obj) ODConcat(obj, _weak_)
+```
+
+### ODCurrentFileAndLine
+Just current file and line as NSString
+
+### ODCompilerIgnorePush & ODCompilerPop
+Two defines for simplifying compiler pragma pushes. Actually, maybe, will be better to move it in another pod :-)
+
+```objective-c
+ODCompilerIgnorePush(-Wgnu).
+// some code
+ODCompilerIgnorePop.
 
 ## Installation
+ODStringify supports multiple methods for installing the library in a project.
 
-ODStringify is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party libraries like ODStringify in your projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+#### Podfile
+
+To integrate ODStringify into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
 pod 'ODStringify'
+end
 ```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Installation with Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate ODStringify into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "Rogaven/ODStringify" ~> 1.1
+```
+
+Run `carthage` to build the framework and drag the built `ODStringify.framework` into your Xcode project.
+
 
 ## Author
 
@@ -26,4 +125,3 @@ Alexey Nazaroff, alexx.nazaroff@gmail.com
 ## License
 
 ODStringify is available under the MIT license. See the LICENSE file for more info.
-
