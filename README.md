@@ -69,6 +69,7 @@ Two defines for simplifying compiler pragma pushes. Actually, maybe, will be bet
 ODCompilerIgnorePush(-Wgnu).
 // some code
 ODCompilerIgnorePop.
+```
 
 ## Installation
 ODStringify supports multiple methods for installing the library in a project.
