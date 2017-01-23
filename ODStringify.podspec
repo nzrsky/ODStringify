@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ODStringify'
-  s.version      = '1.1.1'
+  s.version      = '1.1.2'
   s.summary      = 'Make string from functions, classes, properties and defines safely'
   s.homepage     = 'https://github.com/Rogaven/ODStringify'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
