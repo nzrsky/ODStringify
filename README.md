@@ -11,8 +11,10 @@
 ## Usage
 
 With ODStringify you can make strings from classes, properties, defines and functions
-using one function. Safely. And all things will be done compile time.
-No more runtime overhead and calls like NSStringFromClass (despite of for this function it was very small).
+using one function. Safely. 
+And all things will be done compile time.
+No more runtime overhead and calls like NSStringFromClass 
+(despite of for this function it was very small).
 
 First of all you can make strings from defined value. It's crazy. For example:
 ```objective-c
@@ -23,7 +25,7 @@ NSLog(@"Hi string:%@", ODStringify(DEFAULT_HI_STRING)); // > @"hello" (@"@\"hell
 NSLog(@"Max number:%@", ODStringify(MAX_NUMBER_OF_SOMETHING)); // > 10 (@"10")
 ```
 <p align="center" >
-  <img src="https://raw.github.com/Rogaven/ODStringify/assets/1.png" alt="ODStringify">
+  <img src="https://github.com/Rogaven/ODStringify/blob/master/assets/1.png?raw=true" alt="ODStringify">
 </p>
 
 ### ODStringifyClass
@@ -33,7 +35,7 @@ NSLog(@"Valid class:%@", ODStringifyClass(AppDelegate)); // AppDelegate
 NSLog(@"Invalid class:%@", ODStringifyClass(App_Delegate)); // Error
 ```
 <p align="center" >
-  <img src="https://raw.github.com/Rogaven/ODStringify/assets/2.png" alt="ODStringify">
+  <img src="https://github.com/Rogaven/ODStringify/blob/master/assets/2.png?raw=true" alt="ODStringify">
 </p>
 
 ### ODStringifyProperty
