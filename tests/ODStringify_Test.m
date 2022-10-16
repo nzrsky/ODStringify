@@ -11,7 +11,11 @@
 @implementation ODStringify_Test
 
 - (void)testFileAndLine {
-    // Don't move this line ;-)
+    //
+    //
+    //
+    //
+    // Don't move this line or this test will be broken ;-)
     XCTAssert([ODCurrentFileAndLine rangeOfString:@"ODStringify_Test.m:19"].location != NSNotFound);
 }
 
