@@ -1,17 +1,17 @@
-osx_image: xcode8
+# references:
+# * https://www.objc.io/issues/6-build-tools/travis-ci/
+# * https://github.com/supermarin/xcpretty#usage
+
+osx_image: xcode13.4
 language: objective-c
+cache: cocoapods
 podfile: Example/Podfile
+xcode_workspace: Example/ODStringify_Example.xcworkspace
+xcode_scheme: ODStringify_Example
+xcode_destination: platform=iOS Simulator,OS=14.5,name=iPhone X
 before_install:
-  - gem install --no-rdoc --no-ri --no-document --quiet cocoapods xcpretty
-  - cd Example && pod install && cd -
-  - xcodebuild -workspace Example/ODStringify.xcworkspace -list
+- gem install cocoapods xcpretty # Since Travis is not always on latest version
+- pod install --project-directory=Example
 script:
-  - xcodebuild -workspace Example/ODStringify.xcworkspace -scheme ODStringify_Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=9.3' OTHERCFLAGS="-fprofile-arcs -ftest-coverage" clean test | xcpretty
-  - xcodebuild -workspace Example/ODStringify.xcworkspace -scheme ODStringify_Example -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.0' OTHERCFLAGS="-fprofile-arcs -ftest-coverage" clean test | xcpretty
-  - pod lib lint
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-after_failure:
-  - cat -n ~/Library/Logs/scan/*
-  - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
-  - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
+# - set -o pipefail && xcodebuild  -enableCodeCoverage YES -workspace Example/ODStringify_Example.xcworkspace -scheme ODStringify_Example -destination 'platform=iOS Simulator,OS=14.5' ONLY_ACTIVE_ARCH=NO test | xcpretty
+- pod lib lint
