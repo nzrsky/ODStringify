@@ -1,6 +1,6 @@
 # ODStringify
 
-[![Build Status](https://travis-ci.org/nzrsky/ODStringify.svg?branch=master)](https://travis-ci.com/nzrsky/ODStringify)
+[![Build Status](https://app.travis-ci.com/nzrsky/ODStringify.svg?branch=master)](https://app.travis-ci.com/nzrsky/ODStringify)
 [![codecov.io](https://codecov.io/github/nzrsky/ODStringify/coverage.svg?branch=master)](https://codecov.io/github/nzrsky/ODStringify?branch=master)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/ODStringify.svg)](https://img.shields.io/cocoapods/v/ODStringify.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -88,7 +88,7 @@ To integrate ODStringify into your Xcode project using CocoaPods, specify it in 
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '12.0'
 
 target 'TargetName' do
 pod 'ODStringify'
@@ -123,7 +123,7 @@ Run `carthage` to build the framework and drag the built `ODStringify.framework`
 
 ## Author
 
-Alexey Nazarov, alexx.Nazarov@gmail.com
+Alexey Nazarov, alexx.nazaroff@gmail.com
 
 ## License
 
