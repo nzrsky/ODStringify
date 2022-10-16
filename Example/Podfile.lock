@@ -1,5 +1,5 @@
 PODS:
-  - ODStringify (1.1.1)
+  - ODStringify (1.1.3)
 
 DEPENDENCIES:
   - ODStringify (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ODStringify: d7c38012a19f1e4fe0683e31c96094cac017d192
+  ODStringify: c609733d074bdf5b13b95e3cf4fbbfc6d209ea19
 
 PODFILE CHECKSUM: c6f449f17a2c9e2cac431fee99507cbf0a8bb31e
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.11.3

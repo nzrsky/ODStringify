@@ -1,9 +1,5 @@
 //
-//  main.m
-//  Weakify
-//
-//  Created by Alex Nazaroff on 18/01/2017.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+//  Copyright © 2015-2022 Alexey Nazarov. All rights reserved.
 //
 
 @import UIKit;

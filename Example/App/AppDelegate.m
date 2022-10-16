@@ -1,9 +1,5 @@
 //
-//  ViewController.m
-//  Weakify
-//
-//  Created by Alexey Nazaroff on 01/06/2017.
-//  Copyright (c) 2017 Alexey Nazaroff. All rights reserved.
+//  Copyright (c) 2015-2022 Alexey Nazarov. All rights reserved.
 //
 
 @import UIKit;

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/nazaroff/Desktop/Pods/ODStringify/Example/ODStringify_Example.xcodeproj">
+      location = "group:ODStringify_Example.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

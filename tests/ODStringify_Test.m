@@ -1,9 +1,5 @@
 //
-//  ODXCore_Test.m
-//  ODX.Core
-//
-//  Created by Alex Nazaroff on 12.01.10.
-//  Copyright © 2009-2015 AJR. All rights reserved.
+//  Copyright © 2015-2022 Alexey Nazarov. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = 'ODStringify'
-  s.version      = '1.1.2'
-  s.summary      = 'Make string from functions, classes, properties and defines safely'
-  s.homepage     = 'https://github.com/Rogaven/ODStringify'
+  s.version      = '1.1.4'
+  s.summary      = 'Make String from functions, classes, properties and defines safely in ObjC'
+  s.homepage     = 'https://github.com/nzrsky/ODStringify'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
-  s.author       = { 'Alexey Nazaroff' => 'alexx.nazaroff@gmail.com' }
-  s.source       = { :git => 'https://github.com/Rogaven/ODStringify.git', :tag => s.version.to_s }
+  s.author       = { 'Alexey Nazarov' => 'alexx.Nazarov@gmail.com' }
+  s.source       = { :git => 'https://github.com/nzrsky/ODStringify.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nazarff'
 
   s.ios.deployment_target = '5.0'
@@ -27,6 +27,5 @@ EOS
   s.prefix_header_contents = pch_TARGETS
   s.requires_arc = true
   s.framework    = 'Foundation'
-  s.source_files = 'src/**/*'
-  s.public_header_files = 'src/include/**/*'
+  s.source_files = 'src/**/*.{h,m}'
 end
