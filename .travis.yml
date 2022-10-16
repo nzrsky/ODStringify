@@ -13,5 +13,7 @@ before_install:
 - gem install cocoapods xcpretty # Since Travis is not always on latest version
 - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild  -enableCodeCoverage YES -workspace Example/ODStringify_Example.xcworkspace -scheme ODStringify_Example -sdk iphonesimulator15.5 -destination 'platform=iOS Simulator,OS=15.5,name=iPhone 13' ONLY_ACTIVE_ARCH=NO test | xcpretty
+- set -o pipefail && xcodebuild  -enableCodeCoverage YES -workspace Example/ODStringify_Example.xcworkspace -scheme ODStringify_Example -sdk iphonesimulator15.5 -destination 'platform=iOS Simulator,OS=15.5,name=iPhone 13' ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty
 - pod lib lint
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
