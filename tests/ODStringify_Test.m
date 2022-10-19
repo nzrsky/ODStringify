@@ -43,4 +43,12 @@
     ODCompilerIgnore(-Wall, int y); // No 'unusing' warning here!
 }
 
+- (void)testKeyPath {
+    XCTAssert([UIApplication.sharedApplication.delegate.description
+                isEqualToString:[UIApplication.sharedApplication valueForKeyPath:@"delegate.description"]]);
+
+    XCTAssert([UIApplication.sharedApplication.delegate.description
+                   isEqualToString:[UIApplication.sharedApplication valueForKeyPath: ODKeyPath(UIApplication.sharedApplication, delegate.description)]]);
+}
+
 @end

@@ -18,6 +18,11 @@
     NSLog(@"%@", ODStringify(self));
     NSLog(@"%@", ODStringifyClass(UIApplication));
     NSLog(@"%@", ODStringifyProperty(window));
+
+    NSLog(@"%@", application.delegate.description);
+    NSLog(@"%@", [application valueForKeyPath:@"delegate.description"]);
+    NSLog(@"%@", [application valueForKeyPath:ODKeyPath(application, delegate.description)]);
+
     return YES;
 }
 

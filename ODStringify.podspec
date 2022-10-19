@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ODStringify'
-  s.version      = '1.1.5'
+  s.version      = '1.2.0'
   s.summary      = 'Make String from functions, classes, properties and defines safely in ObjC'
   s.homepage     = 'https://github.com/nzrsky/ODStringify'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
