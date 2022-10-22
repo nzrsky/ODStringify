@@ -34,6 +34,14 @@ Class's name string with compile time type check.
 NSLog(@"Valid class:%@", ODStringifyClass(AppDelegate)); // AppDelegate
 NSLog(@"Invalid class:%@", ODStringifyClass(App_Delegate)); // Error
 ```
+
+### ODStringifyProtocol
+Class's name string with compile time type check.
+```objective-c
+NSLog(@"Valid protocol:%@", ODStringifyProtocol(NSCopying)); // AppDelegate
+NSLog(@"Invalid protocol:%@", ODStringifyProtocol(NSCopiing)); // Error
+```
+
 <p align="center" >
   <img src="https://github.com/nzrsky/ODStringify/blob/master/assets/2.png?raw=true" alt="ODStringify">
 </p>

@@ -35,11 +35,13 @@
 #if DEBUG == 1
     #define __ODStringifyCheck(x)           __unused __typeof (x) __od_str_obj
     #define __ODStringifyCheckClass(x)      __unused x *__od_str_obj
+    #define __ODStringifyCheckProtocol(x)   __unused id<x> __od_str_obj
     #define __ODStringifyCheckProperty(x)   __unused __typeof (self.x) __od_x_prop = self.x
     #define __ODStringifyKeyPath(obj, path)  __unused void * __od_keypath = (void *)obj.path
 
     #define ODStringify(obj)            ({ __ODStringifyCheck(obj); ODStringifyUnsafe(obj); })
     #define ODStringifyClass(cls)       ({ __ODStringifyCheckClass(cls); ODStringifyUnsafe(cls); })
+    #define ODStringifyProtocol(cls)    ({ __ODStringifyCheckProtocol(cls); ODStringifyUnsafe(cls); })
     #define ODStringifyProperty(prop)   ({ __ODStringifyCheckProperty(prop); ODStringifyUnsafe(prop); })
     #define ODKeyPath(obj, path)        ({ __ODStringifyCheck(obj); ODStringifyUnsafe(path); })
 #else

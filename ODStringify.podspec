@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ODStringify'
-  s.version      = '1.2.0'
+  s.version      = '1.3.0'
   s.summary      = 'Make String from functions, classes, properties and defines safely in ObjC'
   s.homepage     = 'https://github.com/nzrsky/ODStringify'
   s.license      = { :type => 'MIT', :file => 'LICENSE.txt' }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.6'
-  s.watchos.deployment_target = '1.0'
+  s.watchos.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
 
   pch_TARGETS = <<-EOS
