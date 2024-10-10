@@ -65,28 +65,6 @@ Pretty much the same thing for properties.
 }
 ```
 
-### ODConcat
-
-Allows us to concatenate anything. For example, here's how it works in the `ODWeakify` pod—we concatenate the name of a variable with a `_weak_` suffix to get a new one.
-
-```objective-c
-#define od_weakify(obj)  __weak __typeof(obj) ODConcat(obj, _weak_)
-```
-
-### ODCurrentFileAndLine
-
-Just the current file and line as an `NSString`.
-
-### ODCompilerIgnorePush & ODCompilerPop
-
-Two defines for simplifying compiler pragma pushes. Actually, maybe it would be better to move it to another pod :-)
-
-```objective-c
-ODCompilerIgnorePush(-Wgnu);
-// some code
-ODCompilerIgnorePop;
-```
-
 ## Installation
 
 ODStringify supports multiple methods for installing the library in a project.
