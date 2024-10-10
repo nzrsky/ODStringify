@@ -9,13 +9,12 @@
 
 ## Usage
 
-With ODStringify you can make strings from classes, properties, defines and functions
-using one function. Safely. 
-And all things will be done compile time.
-No more runtime overhead and calls like NSStringFromClass 
-(despite of for this function it was very small).
+With ODStringify, you can create strings from classes, properties, defines, and functions using one function—safely.
+And everything is done at compile time.
+No more runtime overhead and calls like `NSStringFromClass` (although for this function, it was very small).
 
-First of all you can make strings from defined value. It's crazy. For example:
+First of all, you can create strings from defined values. It's amazing. For example:
+
 ```objective-c
 #define MAX_NUMBER_OF_SOMETHING 10
 #define DEFAULT_HI_STRING @"hello"
@@ -23,31 +22,39 @@ First of all you can make strings from defined value. It's crazy. For example:
 NSLog(@"Hi string:%@", ODStringify(DEFAULT_HI_STRING)); // > @"hello" (@"@\"hello\"")
 NSLog(@"Max number:%@", ODStringify(MAX_NUMBER_OF_SOMETHING)); // > 10 (@"10")
 ```
-<p align="center" >
+
+<p align="center">
   <img src="https://github.com/nzrsky/ODStringify/blob/master/assets/1.png?raw=true" alt="ODStringify">
 </p>
 
 ### ODStringifyClass
-Class's name string with compile time type check.
+
+Class name string with compile-time type checking.
+
 ```objective-c
 NSLog(@"Valid class:%@", ODStringifyClass(AppDelegate)); // AppDelegate
 NSLog(@"Invalid class:%@", ODStringifyClass(App_Delegate)); // Error
 ```
 
 ### ODStringifyProtocol
-Class's name string with compile time type check.
+
+Protocol name string with compile-time type checking.
+
 ```objective-c
-NSLog(@"Valid protocol:%@", ODStringifyProtocol(NSCopying)); // AppDelegate
+NSLog(@"Valid protocol:%@", ODStringifyProtocol(NSCopying)); // NSCopying
 NSLog(@"Invalid protocol:%@", ODStringifyProtocol(NSCopiing)); // Error
 ```
 
-<p align="center" >
+<p align="center">
   <img src="https://github.com/nzrsky/ODStringify/blob/master/assets/2.png?raw=true" alt="ODStringify">
 </p>
 
 ### ODStringifyProperty
-Pretty same thing for properties.
-NB. You need to be inside of class implementation (and have `self`)
+
+Pretty much the same thing for properties.
+
+**Note:** You need to be inside a class implementation (and have access to `self`).
+
 ```objective-c
 // AppDelegate
 
@@ -59,31 +66,34 @@ NB. You need to be inside of class implementation (and have `self`)
 ```
 
 ### ODConcat
-Allows us to concat any things. For example how it works in `ODWeakify` pod –
-we concat name of variable with _weak_ suffix to get new another one.
+
+Allows us to concatenate anything. For example, here's how it works in the `ODWeakify` pod—we concatenate the name of a variable with a `_weak_` suffix to get a new one.
 
 ```objective-c
 #define od_weakify(obj)  __weak __typeof(obj) ODConcat(obj, _weak_)
 ```
 
 ### ODCurrentFileAndLine
-Just current file and line as NSString
+
+Just the current file and line as an `NSString`.
 
 ### ODCompilerIgnorePush & ODCompilerPop
-Two defines for simplifying compiler pragma pushes. Actually, maybe, will be better to move it in another pod :-)
+
+Two defines for simplifying compiler pragma pushes. Actually, maybe it would be better to move it to another pod :-)
 
 ```objective-c
-ODCompilerIgnorePush(-Wgnu).
+ODCompilerIgnorePush(-Wgnu);
 // some code
-ODCompilerIgnorePop.
+ODCompilerIgnorePop;
 ```
 
 ## Installation
+
 ODStringify supports multiple methods for installing the library in a project.
 
-## Installation with CocoaPods
+### Installation with CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party libraries like ODStringify in your projects. You can install it with the following command:
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using third-party libraries like ODStringify in your projects. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods
@@ -98,7 +108,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '12.0'
 
 target 'TargetName' do
-pod 'ODStringify'
+  pod 'ODStringify'
 end
 ```
 
@@ -112,7 +122,7 @@ $ pod install
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+You can install Carthage with [Homebrew](http://brew.sh/) using the following commands:
 
 ```bash
 $ brew update
@@ -126,7 +136,6 @@ github "nzrsky/ODStringify" ~> 1.1
 ```
 
 Run `carthage` to build the framework and drag the built `ODStringify.framework` into your Xcode project.
-
 
 ## Author
 
